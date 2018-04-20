@@ -1,0 +1,64 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  height: 100%;
+}
+.h1{
+  font-size: 20px;
+}
+.h2{
+  font-size: 18px;
+}
+.h3{
+  font-size: 16px;
+}
+.pull-right{
+  float: right;
+}
+.pull-left{
+  float: left;
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+
+}
+.text-right{
+  text-align: right;
+}
+
+.text-ellipsis{
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-24{
+  font-size: 24px;
+}
+.text-22{
+  font-size: 22px;
+}
+
+.text-blue{
+  color: #1c7bef
+}
+
+/*color*/
+.bg-blue{
+  background-color: #1c7bef;
+}
+
+/*margin padding*/
+
+.mrt20{
+  margin-top: 20px;
+}
+.mrtb20{
+  margin-top:20px;
+  margin-bottom: 20px;
+}
