@@ -13,13 +13,13 @@
             </el-col>
             <el-col :span="12">
               <div class="grid-content">
-                <el-input size="medium" placeholder="请输入用户名">
+                <el-input size="medium" placeholder="请输入用户名" v-model="uname">
                 </el-input>
               </div>
             </el-col>
             <el-col :span="6">
               <div class="grid-content bg-purple">
-                <el-button type="primary" size="medium">登陆</el-button>
+                <el-button type="primary" size="medium" @click="login">登陆</el-button>
               </div>
             </el-col>
           </el-row>
@@ -34,7 +34,7 @@
             </el-col>
             <el-col :span="12">
               <div class="grid-content">
-                <el-input size="medium" placeholder="请输入密码" type="password">
+                <el-input size="medium" placeholder="请输入密码" type="password" v-model='password'>
                 </el-input>
               </div>
             </el-col>
@@ -65,13 +65,21 @@
 export default {
   props: [],
   data() {
-    return {};
+    return {
+      uname: '',
+      password: '',
+    };
   },
   computed: {
 
   },
   methods: {
-
+    login() {
+      var uname = this.uname,
+        password = this.password,
+        params = { uname: uname, password: password };
+        this.$store.commit('login',{params:params});
+    }
   },
   components: {
 
@@ -92,11 +100,13 @@ export default {
   height: 100%;
   background: #aae1eb;
 }
-.login_title{
+
+.login_title {
   font-size: 30px;
-    color: #1c7bef;
-      letter-spacing: .3em;
+  color: #1c7bef;
+  letter-spacing: .3em;
 }
+
 .login_box {
   width: 800px;
   margin: 100px auto;

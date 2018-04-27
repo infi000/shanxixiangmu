@@ -66,7 +66,10 @@ export default {
     };
   },
   computed: {
-
+    userInfo() {
+      var d = USERINFO || {};
+      return d;
+    }
   },
   methods: {
 

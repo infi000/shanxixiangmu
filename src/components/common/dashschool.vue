@@ -1,15 +1,15 @@
 <template>
   <el-main>
-    <div class="text-22 text-left">欢迎<span class="text-24 text-blue">张某某</span>登录后台，平台共拥有XX课件。</div>
+    <div class="text-22 text-left">欢迎<span class="text-24 text-blue">{{userInfo.realname||userInfo.uname}}</span>登录后台，平台共拥有XX课件。</div>
     <div class="text-22 text-left">注册学校XXXX，注册教师XXXX，注册学生XXXX。
       <el-row class="pull-right">
-        <el-button size="small">课表管理</el-button>
-        <el-button size="small">学生管理</el-button>
-        <el-button size="small">教师管理</el-button>
+        <el-button size="small" :type="contentShow=='schedule'?'primary':'default'" @click="contentShow='schedule'">课表管理</el-button>
+        <el-button size="small" :type="contentShow=='student'?'primary':'default'" @click="contentShow='student'">学生管理</el-button>
+        <el-button size="small" :type="contentShow=='teacher'?'primary':'default'" @click="contentShow='teacher'">教师管理</el-button>
       </el-row>
     </div>
     <div class="line"></div>
-    <el-row>
+    <el-row v-if="!contentShow">
       <el-col :span="24" class="commonTableBox ">
         <div class="text-left" style="font-size: 18px;padding:20px 5%;">名师授课</div>
         <template>
@@ -36,14 +36,21 @@
         </el-pagination>
       </el-col>
     </el-row>
+    <dom-teacher v-if="contentShow=='teacher'"></dom-teacher>
+    <dom-student v-if="contentShow=='student'"></dom-student>
+    <dom-schedule v-if="contentShow=='schedule'"></dom-schedule>
   </el-main>
 </template>
 <script>
 /*jshint esversion: 6 */
+import domTeacher from "@/components/widget/teachermanager.vue";
+import domStudent from "@/components/widget/studentmanager.vue";
+import domSchedule from "@/components/widget/schedulemanager.vue";
 export default {
   props: [],
   data() {
     return {
+      contentShow: "", //当前显示内容
       tableData: [{
           img: "http://www.xiaomaizhibo.com/img/logo.png",
           title: "课件名称123456",
@@ -85,7 +92,10 @@ export default {
     }
   },
   computed: {
-
+    userInfo() {
+      var d = USERINFO || {};
+      return d;
+    }
   },
   methods: {
     filterStatus(value, row) {
@@ -96,10 +106,13 @@ export default {
         return 'warning-row';
       }
       return '';
-    }
+    },
+
   },
   components: {
-
+    domTeacher,
+    domStudent,
+    domSchedule
   },
   created() {
 
@@ -114,23 +127,6 @@ export default {
 <style scoped>
 .el-main {
   padding: 30px 100px;
-}
-
-.line {
-  height: 1px;
-  width: 100%;
-  background-color: #ddd;
-  margin: 20px 0;
-}
-
-.commonTableBox {
-
-  border: 1px solid #ccc;
-}
-
-
-.commonTableBox .el-table img {
-  width: 100%;
 }
 
 </style>

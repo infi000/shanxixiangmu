@@ -14,6 +14,13 @@ html,body{
 .h3{
   font-size: 16px;
 }
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: #ddd;
+  margin: 20px 0;
+}
 .pull-right{
   float: right;
 }
@@ -37,6 +44,9 @@ html,body{
     text-overflow: ellipsis;
 }
 
+.text-18{
+  font-size: 18px;
+}
 .text-24{
   font-size: 24px;
 }
@@ -46,6 +56,9 @@ html,body{
 
 .text-blue{
   color: #1c7bef
+}
+.text-warning{
+  color:#f0724f;
 }
 
 /*color*/
@@ -61,4 +74,26 @@ html,body{
 .mrtb20{
   margin-top:20px;
   margin-bottom: 20px;
+}
+.mrauto{
+  margin: 0 auto;
+}
+.pd20{
+  padding: 20px;
+}
+
+/*box*/
+
+.border-blue{
+  border: 1px solid #8bbfff;
+}
+.border{
+  border:1px solid #ddd;
+}
+
+
+/*maxw maxh*/
+.maxwh100{
+max-width: 100%;
+max-height: 100%;
 }

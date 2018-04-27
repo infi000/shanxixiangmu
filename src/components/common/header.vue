@@ -10,8 +10,8 @@
       </el-aside>
       <el-main>
         <el-row >
-          <el-col :span="6"  :offset="14"><i class="fas fa-user"></i>欢迎,<span>张嬷嬷</span></el-col>
-          <el-col :span="4"><el-button type="text" :style="{color:(type=='common')?'#000':'auto'}"><i class="fas fa-sign-out-alt"></i>退出</el-button></el-col>
+          <el-col :span="6"  :offset="14"><i class="fas fa-user"></i>欢迎,<span>{{userInfo.realname||userInfo.uname}}</span></el-col>
+          <el-col :span="4"><el-button type="text" :style="{color:(type=='common')?'#000':'auto'}" @click="logout"><i class="fas fa-sign-out-alt"></i>退出</el-button></el-col>
         </el-row>
       </el-main>
     </el-container>
@@ -30,9 +30,21 @@ export default {
     };
   },
   computed: {
-
+        userInfo() {
+      var d = USERINFO || {};
+      return d;
+    }
   },
   methods: {
+    logout(){
+      var that=this;
+      var parmas={
+        params:{
+          uid:that.userInfo.uid
+        }
+      }
+      this.$store.commit('logout',parmas)
+    },
 
   },
   components: {

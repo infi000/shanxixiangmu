@@ -42,10 +42,44 @@ export default {
 .bg-blue .el-submenu__icon-arrow {
   color: #fff;
 }
+.commonTableBox {
+
+  border: 1px solid #ccc;
+}
 
 .commonTableBox .el-table th {
   background: #ecebeb;
   text-align:center;
 }
 
+
+.commonTableBox .el-table img {
+  width: 100%;
+}
+
+/*上传框*/
+
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
 </style>

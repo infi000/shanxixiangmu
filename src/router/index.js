@@ -7,17 +7,24 @@ import city from '@/components/page/city';
 import student from '@/components/page/student';
 import common from '@/components/page/common';
 import school from '@/components/page/school';
+import teacher from '@/components/page/teacher';
 
 import dashcity from '@/components/common/dashcity';
 import tagcity from '@/components/common/tagcity';
 import dashstudent from '@/components/common/dashstudent';
 import dashcommon from '@/components/common/dashcommon';
 import dashschool from '@/components/common/dashschool';
+import dashteacher from '@/components/common/dashteacher';
 
 Vue.use(Router);
 
 export default new Router({
-  routes: [{
+  routes: [
+  {
+    path: '',
+    name: 'login',
+    component: login
+  },{
     path: '/login',
     name: 'login',
     component: login
@@ -57,6 +64,14 @@ export default new Router({
     {
       path:'',
       component:dashschool,
+    }]
+  },{
+    path:'/teacher',
+    component:teacher,
+    children:[
+    {
+      path:'',
+      component:dashteacher,
     }]
   }]
 });
